@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  hexcolor: ^2.0.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -38,6 +38,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  fonts:
+    - family: Valorant
+      fonts:
+      - asset: fonts/Valorant Font.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

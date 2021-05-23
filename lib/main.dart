@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_not_just_a_wiki/view/home_screen.dart';
+import 'view/home_screen.dart';
+import 'view/character_screen.dart';
 
 void main() {
   runApp(NotJustAWikiValorant());
@@ -9,11 +12,11 @@ class NotJustAWikiValorant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: NotJustAWikiValorant(),
+      initialRoute: HomeScreen.screenId,
+      routes: {
+        HomeScreen.screenId: (context) => HomeScreen(),
+        CharacterScreen.screenId: (context) => CharacterScreen(),
+      },
     );
   }
 }
