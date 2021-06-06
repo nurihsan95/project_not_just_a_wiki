@@ -2,24 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class HomeBoxIcon extends StatelessWidget {
-  final String imageIcon;
-  final Function onTapEvent;
-  final String text;
+  final imageIcon;
+  final onTapEvent;
+  final text;
 
   HomeBoxIcon({this.imageIcon, @required this.onTapEvent, this.text});
 
   @override
   Widget build(BuildContext context) {
+    var deviceDataSize = MediaQuery.of(context);
+    print(deviceDataSize);
+
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 200.0),
+      constraints: BoxConstraints(
+        maxHeight: deviceDataSize.size.width / 2.5,
+      ),
       child: GestureDetector(
         onTap: onTapEvent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Expanded(
               child: Container(
-                constraints: BoxConstraints(maxWidth: 180.0),
+                width: deviceDataSize.size.width / 2.5,
+                // height: 180,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(imageIcon),
@@ -34,15 +41,10 @@ class HomeBoxIcon extends StatelessWidget {
             SizedBox(
               height: 2.0,
             ),
-            Hero(
-              tag: 'character',
-              child: Text(
-                text,
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: 'Valorant',
-                    color: Colors.white),
-              ),
+            Text(
+              text,
+              style: TextStyle(
+                  fontSize: 20.0, fontFamily: 'Valorant', color: Colors.white),
             ),
           ],
         ),
